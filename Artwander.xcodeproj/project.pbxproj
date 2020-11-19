@@ -3,17 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		A40ABE3D2565E165003A4DD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40ABE3C2565E165003A4DD7 /* AppDelegate.swift */; };
 		A40ABE3F2565E165003A4DD7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40ABE3E2565E165003A4DD7 /* SceneDelegate.swift */; };
-		A40ABE412565E165003A4DD7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40ABE402565E165003A4DD7 /* ViewController.swift */; };
 		A40ABE442565E165003A4DD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40ABE422565E165003A4DD7 /* Main.storyboard */; };
 		A40ABE462565E168003A4DD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A40ABE452565E168003A4DD7 /* Assets.xcassets */; };
 		A40ABE492565E168003A4DD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40ABE472565E168003A4DD7 /* LaunchScreen.storyboard */; };
 		A40ABE512565E1E9003A4DD7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A40ABE502565E1E9003A4DD7 /* GoogleService-Info.plist */; };
+		A40ABE532566F741003A4DD7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40ABE522566F741003A4DD7 /* LoginViewController.swift */; };
+		A40ABE562566F93D003A4DD7 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40ABE552566F93D003A4DD7 /* SignupViewController.swift */; };
+		A40ABE5A256704EC003A4DD7 /* ArtUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40ABE59256704EB003A4DD7 /* ArtUser.swift */; };
 		F705F85B3B6E36BC4B79A089 /* Pods_Artwander.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6190E2855BB451667650705D /* Pods_Artwander.framework */; };
 /* End PBXBuildFile section */
 
@@ -22,12 +24,14 @@
 		A40ABE392565E165003A4DD7 /* Artwander.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artwander.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A40ABE3C2565E165003A4DD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A40ABE3E2565E165003A4DD7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A40ABE402565E165003A4DD7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A40ABE432565E165003A4DD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A40ABE452565E168003A4DD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A40ABE482565E168003A4DD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A40ABE4A2565E168003A4DD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A40ABE502565E1E9003A4DD7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A40ABE522566F741003A4DD7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A40ABE552566F93D003A4DD7 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		A40ABE59256704EB003A4DD7 /* ArtUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtUser.swift; sourceTree = "<group>"; };
 		C2DEE09B64BFC307E3B2DEE0 /* Pods-Artwander.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Artwander.debug.xcconfig"; path = "Target Support Files/Pods-Artwander/Pods-Artwander.debug.xcconfig"; sourceTree = "<group>"; };
 		DF21D32B418369D1824F21BD /* Pods-Artwander.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Artwander.release.xcconfig"; path = "Target Support Files/Pods-Artwander/Pods-Artwander.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,7 +62,6 @@
 				C2DEE09B64BFC307E3B2DEE0 /* Pods-Artwander.debug.xcconfig */,
 				DF21D32B418369D1824F21BD /* Pods-Artwander.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -83,16 +86,42 @@
 		A40ABE3B2565E165003A4DD7 /* Artwander */ = {
 			isa = PBXGroup;
 			children = (
-				A40ABE502565E1E9003A4DD7 /* GoogleService-Info.plist */,
 				A40ABE3C2565E165003A4DD7 /* AppDelegate.swift */,
+				A40ABE502565E1E9003A4DD7 /* GoogleService-Info.plist */,
 				A40ABE3E2565E165003A4DD7 /* SceneDelegate.swift */,
-				A40ABE402565E165003A4DD7 /* ViewController.swift */,
-				A40ABE422565E165003A4DD7 /* Main.storyboard */,
-				A40ABE452565E168003A4DD7 /* Assets.xcassets */,
-				A40ABE472565E168003A4DD7 /* LaunchScreen.storyboard */,
 				A40ABE4A2565E168003A4DD7 /* Info.plist */,
+				A40ABE58256704B4003A4DD7 /* Storyboards */,
+				A40ABE57256704A2003A4DD7 /* Models */,
+				A40ABE542566F755003A4DD7 /* ViewControllers */,
+				A40ABE452565E168003A4DD7 /* Assets.xcassets */,
 			);
 			path = Artwander;
+			sourceTree = "<group>";
+		};
+		A40ABE542566F755003A4DD7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A40ABE522566F741003A4DD7 /* LoginViewController.swift */,
+				A40ABE552566F93D003A4DD7 /* SignupViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A40ABE57256704A2003A4DD7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A40ABE59256704EB003A4DD7 /* ArtUser.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A40ABE58256704B4003A4DD7 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A40ABE422565E165003A4DD7 /* Main.storyboard */,
+				A40ABE472565E168003A4DD7 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,8 +258,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A40ABE412565E165003A4DD7 /* ViewController.swift in Sources */,
+				A40ABE532566F741003A4DD7 /* LoginViewController.swift in Sources */,
 				A40ABE3D2565E165003A4DD7 /* AppDelegate.swift in Sources */,
+				A40ABE5A256704EC003A4DD7 /* ArtUser.swift in Sources */,
+				A40ABE562566F93D003A4DD7 /* SignupViewController.swift in Sources */,
 				A40ABE3F2565E165003A4DD7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
