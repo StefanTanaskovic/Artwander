@@ -16,6 +16,7 @@
 		A40ABE532566F741003A4DD7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40ABE522566F741003A4DD7 /* LoginViewController.swift */; };
 		A40ABE562566F93D003A4DD7 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40ABE552566F93D003A4DD7 /* SignupViewController.swift */; };
 		A40ABE5A256704EC003A4DD7 /* ArtUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40ABE59256704EB003A4DD7 /* ArtUser.swift */; };
+		D30C9A7D25678445000674D7 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30C9A7C25678445000674D7 /* TabBarViewController.swift */; };
 		F705F85B3B6E36BC4B79A089 /* Pods_Artwander.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6190E2855BB451667650705D /* Pods_Artwander.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		A40ABE552566F93D003A4DD7 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		A40ABE59256704EB003A4DD7 /* ArtUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtUser.swift; sourceTree = "<group>"; };
 		C2DEE09B64BFC307E3B2DEE0 /* Pods-Artwander.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Artwander.debug.xcconfig"; path = "Target Support Files/Pods-Artwander/Pods-Artwander.debug.xcconfig"; sourceTree = "<group>"; };
+		D30C9A7C25678445000674D7 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		DF21D32B418369D1824F21BD /* Pods-Artwander.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Artwander.release.xcconfig"; path = "Target Support Files/Pods-Artwander/Pods-Artwander.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,6 +105,7 @@
 			children = (
 				A40ABE522566F741003A4DD7 /* LoginViewController.swift */,
 				A40ABE552566F93D003A4DD7 /* SignupViewController.swift */,
+				D30C9A7C25678445000674D7 /* TabBarViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				A40ABE3D2565E165003A4DD7 /* AppDelegate.swift in Sources */,
 				A40ABE5A256704EC003A4DD7 /* ArtUser.swift in Sources */,
 				A40ABE562566F93D003A4DD7 /* SignupViewController.swift in Sources */,
+				D30C9A7D25678445000674D7 /* TabBarViewController.swift in Sources */,
 				A40ABE3F2565E165003A4DD7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,6 +413,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Artwander/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -427,6 +432,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Artwander/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
