@@ -13,4 +13,5 @@ pod 'Firebase/Messaging'
 pod 'Firebase/Storage'
 pod 'Firebase/InAppMessaging'
 pod 'Firebase/Database'
+pod 'VerticalCardSwiper'
 end

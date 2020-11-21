@@ -386,6 +386,7 @@ PODS:
   - nanopb/encode (1.30905.0)
   - PromisesObjC (1.2.9)
   - Protobuf (3.12.0)
+  - VerticalCardSwiper (2.2.0)
 
 DEPENDENCIES:
   - Firebase/Analytics
@@ -395,6 +396,7 @@ DEPENDENCIES:
   - Firebase/InAppMessaging
   - Firebase/Messaging
   - Firebase/Storage
+  - VerticalCardSwiper
 
 SPEC REPOS:
   trunk:
@@ -427,6 +429,7 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - Protobuf
+    - VerticalCardSwiper
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -458,7 +461,8 @@ SPEC CHECKSUMS:
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
   Protobuf: 2793fcd0622a00b546c60e7cbbcc493e043e9bb9
+  VerticalCardSwiper: 41c8c0d8d87511ec269347f5671386acf66cd31a
 
-PODFILE CHECKSUM: 9606ab1eed8d1a09c6e51491548547457f757fe4
+PODFILE CHECKSUM: 46aa6107cd79afcc7fcb1f2af309825fd0ae88be
 
 COCOAPODS: 1.9.2

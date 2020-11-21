@@ -24,10 +24,14 @@ class LoginViewController: UIViewController {
     // MARK: ViewController Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+//        if Auth.auth().currentUser != nil {
+//            performSegue(withIdentifier: "main", sender: nil)
+//        }
+    }
 
     // MARK: UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -45,11 +49,12 @@ class LoginViewController: UIViewController {
             } else {
                 self!.mainDelegate.currentUserId = authResult?.user.uid
                 self!.mainDelegate.updateCurrentUser()
-                self!.performSegue(withIdentifier: "MainAppTabBar", sender: self)
+                self!.performSegue(withIdentifier: "main", sender: nil)
             }
         }
     }
-
+    
+    
     func presentAlert(title: String, message: String, preferredStyle: UIAlertController.Style) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: preferredStyle)
         let okayAction = UIAlertAction(title: "Okay", style: .default, handler: { (alert: UIAlertAction!) in

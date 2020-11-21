@@ -63,6 +63,7 @@ class SignUpViewController: UIViewController {
                 self.mainDelegate.firestoreDB?.collection("users").document((authResult?.user.uid)!).setData([
                     "full_name": self.tfName.text!,
                     "email": self.tfEmail.text!,
+                    "posts": []
                 ])
                 self.dismiss(animated: true, completion: nil)
             }

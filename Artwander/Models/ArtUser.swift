@@ -9,27 +9,20 @@
 import Foundation
 
 class ArtUser : NSObject {
+    
     var id : String?
     var name : String
     var email : String
-
-    /**
-        Initialize an empty/default object of this class.
-    */
+    var Posts : [Post]?
+    
     override init() {
         self.name = ""
         self.email = ""
     }
 
-    /**
-        Initialize an object of this class with data.
-        - Parameter name: The full name of the user.
-        - Parameter email: The email address of the user.
-        - Parameter campus: The campus of the user.
-        - Parameter program: The program the user is taking at Sheridan.
-    */
-    init(name: String, email: String) {
+    init(name: String, email: String, post: [Post]) {
         self.name = name
         self.email = email
+        self.Posts = post
     }
 }

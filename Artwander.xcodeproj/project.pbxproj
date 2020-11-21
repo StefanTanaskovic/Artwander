@@ -16,6 +16,14 @@
 		A40ABE532566F741003A4DD7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40ABE522566F741003A4DD7 /* LoginViewController.swift */; };
 		A40ABE562566F93D003A4DD7 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40ABE552566F93D003A4DD7 /* SignupViewController.swift */; };
 		A40ABE5A256704EC003A4DD7 /* ArtUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40ABE59256704EB003A4DD7 /* ArtUser.swift */; };
+		A40ABE6225686AA1003A4DD7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40ABE6125686AA1003A4DD7 /* HomeViewController.swift */; };
+		A40ABE6425686AFB003A4DD7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40ABE6325686AFB003A4DD7 /* Post.swift */; };
+		A40ABE67256870B8003A4DD7 /* ExampleCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40ABE66256870B8003A4DD7 /* ExampleCardCell.swift */; };
+		A40ABE69256870CD003A4DD7 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40ABE68256870CD003A4DD7 /* ImageCell.swift */; };
+		A40ABE6B25687130003A4DD7 /* ExampleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A40ABE6A25687130003A4DD7 /* ExampleCell.xib */; };
+		A40ABE6F256871CD003A4DD7 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40ABE6E256871CD003A4DD7 /* CollectionViewCell.swift */; };
+		A40ABE7325688D73003A4DD7 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40ABE7225688D73003A4DD7 /* NewPostViewController.swift */; };
+		A40ABE7525688F0D003A4DD7 /* VerticalCardSwiper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A40ABE7425688F0D003A4DD7 /* VerticalCardSwiper.framework */; };
 		D30C9A7D25678445000674D7 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30C9A7C25678445000674D7 /* TabBarViewController.swift */; };
 		F705F85B3B6E36BC4B79A089 /* Pods_Artwander.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6190E2855BB451667650705D /* Pods_Artwander.framework */; };
 /* End PBXBuildFile section */
@@ -33,6 +41,15 @@
 		A40ABE522566F741003A4DD7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A40ABE552566F93D003A4DD7 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		A40ABE59256704EB003A4DD7 /* ArtUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtUser.swift; sourceTree = "<group>"; };
+		A40ABE5D25686595003A4DD7 /* VerticalCardSwiper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VerticalCardSwiper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A40ABE6125686AA1003A4DD7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A40ABE6325686AFB003A4DD7 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		A40ABE66256870B8003A4DD7 /* ExampleCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCardCell.swift; sourceTree = "<group>"; };
+		A40ABE68256870CD003A4DD7 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		A40ABE6A25687130003A4DD7 /* ExampleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExampleCell.xib; sourceTree = "<group>"; };
+		A40ABE6E256871CD003A4DD7 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		A40ABE7225688D73003A4DD7 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
+		A40ABE7425688F0D003A4DD7 /* VerticalCardSwiper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VerticalCardSwiper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2DEE09B64BFC307E3B2DEE0 /* Pods-Artwander.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Artwander.debug.xcconfig"; path = "Target Support Files/Pods-Artwander/Pods-Artwander.debug.xcconfig"; sourceTree = "<group>"; };
 		D30C9A7C25678445000674D7 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		DF21D32B418369D1824F21BD /* Pods-Artwander.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Artwander.release.xcconfig"; path = "Target Support Files/Pods-Artwander/Pods-Artwander.release.xcconfig"; sourceTree = "<group>"; };
@@ -43,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A40ABE7525688F0D003A4DD7 /* VerticalCardSwiper.framework in Frameworks */,
 				F705F85B3B6E36BC4B79A089 /* Pods_Artwander.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,6 +71,8 @@
 		192A7CED74EAF2D115DAD48D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A40ABE7425688F0D003A4DD7 /* VerticalCardSwiper.framework */,
+				A40ABE5D25686595003A4DD7 /* VerticalCardSwiper.framework */,
 				6190E2855BB451667650705D /* Pods_Artwander.framework */,
 			);
 			name = Frameworks;
@@ -88,6 +108,7 @@
 		A40ABE3B2565E165003A4DD7 /* Artwander */ = {
 			isa = PBXGroup;
 			children = (
+				A40ABE652568707E003A4DD7 /* Cells */,
 				A40ABE3C2565E165003A4DD7 /* AppDelegate.swift */,
 				A40ABE502565E1E9003A4DD7 /* GoogleService-Info.plist */,
 				A40ABE3E2565E165003A4DD7 /* SceneDelegate.swift */,
@@ -106,6 +127,8 @@
 				A40ABE522566F741003A4DD7 /* LoginViewController.swift */,
 				A40ABE552566F93D003A4DD7 /* SignupViewController.swift */,
 				D30C9A7C25678445000674D7 /* TabBarViewController.swift */,
+				A40ABE6125686AA1003A4DD7 /* HomeViewController.swift */,
+				A40ABE7225688D73003A4DD7 /* NewPostViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -114,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				A40ABE59256704EB003A4DD7 /* ArtUser.swift */,
+				A40ABE6325686AFB003A4DD7 /* Post.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -125,6 +149,17 @@
 				A40ABE472565E168003A4DD7 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		A40ABE652568707E003A4DD7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A40ABE66256870B8003A4DD7 /* ExampleCardCell.swift */,
+				A40ABE68256870CD003A4DD7 /* ImageCell.swift */,
+				A40ABE6A25687130003A4DD7 /* ExampleCell.xib */,
+				A40ABE6E256871CD003A4DD7 /* CollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +226,7 @@
 				A40ABE492565E168003A4DD7 /* LaunchScreen.storyboard in Resources */,
 				A40ABE512565E1E9003A4DD7 /* GoogleService-Info.plist in Resources */,
 				A40ABE462565E168003A4DD7 /* Assets.xcassets in Resources */,
+				A40ABE6B25687130003A4DD7 /* ExampleCell.xib in Resources */,
 				A40ABE442565E165003A4DD7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,10 +299,16 @@
 			files = (
 				A40ABE532566F741003A4DD7 /* LoginViewController.swift in Sources */,
 				A40ABE3D2565E165003A4DD7 /* AppDelegate.swift in Sources */,
+				A40ABE67256870B8003A4DD7 /* ExampleCardCell.swift in Sources */,
 				A40ABE5A256704EC003A4DD7 /* ArtUser.swift in Sources */,
+				A40ABE6425686AFB003A4DD7 /* Post.swift in Sources */,
+				A40ABE7325688D73003A4DD7 /* NewPostViewController.swift in Sources */,
 				A40ABE562566F93D003A4DD7 /* SignupViewController.swift in Sources */,
 				D30C9A7D25678445000674D7 /* TabBarViewController.swift in Sources */,
+				A40ABE6225686AA1003A4DD7 /* HomeViewController.swift in Sources */,
 				A40ABE3F2565E165003A4DD7 /* SceneDelegate.swift in Sources */,
+				A40ABE69256870CD003A4DD7 /* ImageCell.swift in Sources */,
+				A40ABE6F256871CD003A4DD7 /* CollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
