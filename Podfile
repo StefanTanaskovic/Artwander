@@ -14,4 +14,6 @@ pod 'Firebase/Storage'
 pod 'Firebase/InAppMessaging'
 pod 'Firebase/Database'
 pod 'VerticalCardSwiper'
+pod 'Firebase/Functions'
+pod 'Kingfisher', '~> 5.0'
 end

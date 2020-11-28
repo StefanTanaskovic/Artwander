@@ -24,6 +24,13 @@
 		A40ABE6F256871CD003A4DD7 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40ABE6E256871CD003A4DD7 /* CollectionViewCell.swift */; };
 		A40ABE7325688D73003A4DD7 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40ABE7225688D73003A4DD7 /* NewPostViewController.swift */; };
 		A40ABE7525688F0D003A4DD7 /* VerticalCardSwiper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A40ABE7425688F0D003A4DD7 /* VerticalCardSwiper.framework */; };
+		A40ABE792568F55B003A4DD7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40ABE782568F55B003A4DD7 /* ProfileViewController.swift */; };
+		A40ABE7B2568F5C4003A4DD7 /* ProfileCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40ABE7A2568F5C4003A4DD7 /* ProfileCellViewController.swift */; };
+		A40ABE7D2569047B003A4DD7 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40ABE7C2569047A003A4DD7 /* EditProfileViewController.swift */; };
+		A40ABE7F256A37D4003A4DD7 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40ABE7E256A37D3003A4DD7 /* ImagePickerController.swift */; };
+		A419574D2570D33800C46956 /* FollowingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A419574C2570D33800C46956 /* FollowingListViewController.swift */; };
+		A419574F2570D49C00C46956 /* FollowerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A419574E2570D49C00C46956 /* FollowerListViewController.swift */; };
+		A41957512570DA0700C46956 /* SimpleUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41957502570DA0700C46956 /* SimpleUser.swift */; };
 		D30C9A7D25678445000674D7 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30C9A7C25678445000674D7 /* TabBarViewController.swift */; };
 		F705F85B3B6E36BC4B79A089 /* Pods_Artwander.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6190E2855BB451667650705D /* Pods_Artwander.framework */; };
 /* End PBXBuildFile section */
@@ -50,6 +57,13 @@
 		A40ABE6E256871CD003A4DD7 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		A40ABE7225688D73003A4DD7 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		A40ABE7425688F0D003A4DD7 /* VerticalCardSwiper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VerticalCardSwiper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A40ABE782568F55B003A4DD7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		A40ABE7A2568F5C4003A4DD7 /* ProfileCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCellViewController.swift; sourceTree = "<group>"; };
+		A40ABE7C2569047A003A4DD7 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		A40ABE7E256A37D3003A4DD7 /* ImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
+		A419574C2570D33800C46956 /* FollowingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingListViewController.swift; sourceTree = "<group>"; };
+		A419574E2570D49C00C46956 /* FollowerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListViewController.swift; sourceTree = "<group>"; };
+		A41957502570DA0700C46956 /* SimpleUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleUser.swift; sourceTree = "<group>"; };
 		C2DEE09B64BFC307E3B2DEE0 /* Pods-Artwander.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Artwander.debug.xcconfig"; path = "Target Support Files/Pods-Artwander/Pods-Artwander.debug.xcconfig"; sourceTree = "<group>"; };
 		D30C9A7C25678445000674D7 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		DF21D32B418369D1824F21BD /* Pods-Artwander.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Artwander.release.xcconfig"; path = "Target Support Files/Pods-Artwander/Pods-Artwander.release.xcconfig"; sourceTree = "<group>"; };
@@ -108,11 +122,11 @@
 		A40ABE3B2565E165003A4DD7 /* Artwander */ = {
 			isa = PBXGroup;
 			children = (
-				A40ABE652568707E003A4DD7 /* Cells */,
 				A40ABE3C2565E165003A4DD7 /* AppDelegate.swift */,
 				A40ABE502565E1E9003A4DD7 /* GoogleService-Info.plist */,
 				A40ABE3E2565E165003A4DD7 /* SceneDelegate.swift */,
 				A40ABE4A2565E168003A4DD7 /* Info.plist */,
+				A40ABE652568707E003A4DD7 /* Cells */,
 				A40ABE58256704B4003A4DD7 /* Storyboards */,
 				A40ABE57256704A2003A4DD7 /* Models */,
 				A40ABE542566F755003A4DD7 /* ViewControllers */,
@@ -129,6 +143,12 @@
 				D30C9A7C25678445000674D7 /* TabBarViewController.swift */,
 				A40ABE6125686AA1003A4DD7 /* HomeViewController.swift */,
 				A40ABE7225688D73003A4DD7 /* NewPostViewController.swift */,
+				A40ABE782568F55B003A4DD7 /* ProfileViewController.swift */,
+				A40ABE7A2568F5C4003A4DD7 /* ProfileCellViewController.swift */,
+				A40ABE7C2569047A003A4DD7 /* EditProfileViewController.swift */,
+				A40ABE7E256A37D3003A4DD7 /* ImagePickerController.swift */,
+				A419574C2570D33800C46956 /* FollowingListViewController.swift */,
+				A419574E2570D49C00C46956 /* FollowerListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -138,6 +158,7 @@
 			children = (
 				A40ABE59256704EB003A4DD7 /* ArtUser.swift */,
 				A40ABE6325686AFB003A4DD7 /* Post.swift */,
+				A41957502570DA0700C46956 /* SimpleUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -299,14 +320,21 @@
 			files = (
 				A40ABE532566F741003A4DD7 /* LoginViewController.swift in Sources */,
 				A40ABE3D2565E165003A4DD7 /* AppDelegate.swift in Sources */,
+				A41957512570DA0700C46956 /* SimpleUser.swift in Sources */,
+				A419574F2570D49C00C46956 /* FollowerListViewController.swift in Sources */,
 				A40ABE67256870B8003A4DD7 /* ExampleCardCell.swift in Sources */,
 				A40ABE5A256704EC003A4DD7 /* ArtUser.swift in Sources */,
 				A40ABE6425686AFB003A4DD7 /* Post.swift in Sources */,
 				A40ABE7325688D73003A4DD7 /* NewPostViewController.swift in Sources */,
 				A40ABE562566F93D003A4DD7 /* SignupViewController.swift in Sources */,
 				D30C9A7D25678445000674D7 /* TabBarViewController.swift in Sources */,
+				A40ABE7D2569047B003A4DD7 /* EditProfileViewController.swift in Sources */,
 				A40ABE6225686AA1003A4DD7 /* HomeViewController.swift in Sources */,
 				A40ABE3F2565E165003A4DD7 /* SceneDelegate.swift in Sources */,
+				A419574D2570D33800C46956 /* FollowingListViewController.swift in Sources */,
+				A40ABE7F256A37D4003A4DD7 /* ImagePickerController.swift in Sources */,
+				A40ABE7B2568F5C4003A4DD7 /* ProfileCellViewController.swift in Sources */,
+				A40ABE792568F55B003A4DD7 /* ProfileViewController.swift in Sources */,
 				A40ABE69256870CD003A4DD7 /* ImageCell.swift in Sources */,
 				A40ABE6F256871CD003A4DD7 /* CollectionViewCell.swift in Sources */,
 			);

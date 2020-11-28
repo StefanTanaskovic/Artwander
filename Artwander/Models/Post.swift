@@ -9,24 +9,30 @@
 import Foundation
 import UIKit
 
-class Post {
-    let name: String!
-    let caption: String!
-    let image: UIImage
-    let profilePic: UIImage
-    var likeState: Bool
+class Post : NSObject {
+    var name: String
+    var caption: String
+    var image: String
+    var profilePic: String
     var likeAmount: Int
-    let poster: String
-
-    init(name: String, caption: String, image: UIImage, profilePic: UIImage, likeState: Bool, likeAmount: Int, poster: String) {
+    var poster: String
+    
+    override init() {
+        self.name = ""
+        self.caption = ""
+        self.image = ""
+        self.likeAmount = 0
+        self.poster = ""
+        self.profilePic = ""
+    }
+    
+    init(name: String, caption: String, image: String, profilePic: String, likeAmount: Int, poster: String) {
         self.name = name
         self.caption = caption
         self.image = image
-        self.profilePic = profilePic
-        self.likeState = likeState
         self.likeAmount = likeAmount
         self.poster = poster
-        
+        self.profilePic = profilePic
     }
 }
 

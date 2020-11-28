@@ -1,63 +1,86 @@
 //
-//  HomeViewController.swift
+//  ProfileCellViewController.swift
 //  Artwander
 //
-//  Created by Stefan Tanaskovic on 2020-11-20.
+//  Created by Stefan Tanaskovic on 2020-11-21.
 //  Copyright © 2020 Stefan Tanaskovic. All rights reserved.
 //
 
+
 import UIKit
 import VerticalCardSwiper
-import Kingfisher
-class HomeViewController: UIViewController, VerticalCardSwiperDelegate, VerticalCardSwiperDatasource, UIGestureRecognizerDelegate {
-    
+
+class ProfileCellViewController: UIViewController,VerticalCardSwiperDelegate, VerticalCardSwiperDatasource, UIGestureRecognizerDelegate {
     let mainDelegate = UIApplication.shared.delegate as! AppDelegate
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    var text:String = ""
     @IBOutlet weak var buttonView: UIView!
     @IBOutlet weak var likeBtn: UIButton!
     @IBOutlet weak var msgBtn: UIButton!
-    
     @IBOutlet weak var profileBtn: UIButton!
     @IBOutlet weak var purchaseBtn: UIButton!
-    var selectedSegnment = 1
-    @IBOutlet var cardSwiper: VerticalCardSwiper!
 
-
+ 
+    @IBOutlet weak var cardSwiper: VerticalCardSwiper!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = mainDelegate.currentUserObj.name + " Page"
+        buttonView.layer.cornerRadius = 20
+        likeBtn.imageView?.contentMode = .scaleAspectFit
+        msgBtn.imageView?.contentMode = .scaleAspectFit
+        profileBtn.imageView?.contentMode = .scaleAspectFit
+        purchaseBtn.imageView?.contentMode = .scaleAspectFit
+        
+        likeBtn.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25, bottom: 25, right: 25)
+        msgBtn.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25, bottom: 25, right: 25)
+        profileBtn.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25, bottom: 25, right: 25)
+        purchaseBtn.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25, bottom: 25, right: 25)
+
+        cardSwiper.isStackingEnabled = false
+        cardSwiper.visibleNextCardHeight = 0
+        cardSwiper.topInset = 0
+        
+        self.view.insertSubview(self.cardSwiper, at: 0)
 
         cardSwiper.delegate = self
         cardSwiper.datasource = self
 
         // register cardcell for storyboard use
         cardSwiper.register(nib: UINib(nibName: "ExampleCell", bundle: nil), forCellWithReuseIdentifier: "ExampleCell")
+        
+        
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLoad()
+        cardSwiper.scrollToCard(at: Int(text)!, animated: false)
+    }
+
+    
+    @IBAction func profileBtn(_ sender: Any) {
+        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+        
+        self.navigationController?.pushViewController(secondViewController, animated: true)
     }
     
     
-
-
-    @IBAction func toProfile(_ sender: Any) {
-            performSegue(withIdentifier: "toProfile", sender: self)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "toProfile" {
+//            let vc = segue.destination as? ProfileCellViewController
+//            vc?.text = String(format: "%@", sender! as! CVarArg)
+//        }
     }
     
-
-    @IBAction func pressScrollUp(_ sender: UIBarButtonItem) {
+    @IBAction func pressLeftButton(_ sender: Any) {
         if let currentIndex = cardSwiper.focussedCardIndex {
-            _ = cardSwiper.scrollToCard(at: currentIndex - 1, animated: true)
+            _ = cardSwiper.swipeCardAwayProgrammatically(at: currentIndex, to: .Left)
         }
     }
-
 
     @IBAction func pressRightButton() {
-
-    }
-    
-
-    @IBAction func pressScrollDown(_ sender: UIBarButtonItem) {
         if let currentIndex = cardSwiper.focussedCardIndex {
-            _ = cardSwiper.scrollToCard(at: currentIndex + 1, animated: true)
+            _ = cardSwiper.swipeCardAwayProgrammatically(at: currentIndex, to: .Right)
         }
     }
+
     
 
     func cardForItemAt(verticalCardSwiperView: VerticalCardSwiperView, cardForItemAt index: Int) -> CardCell {
@@ -79,7 +102,7 @@ class HomeViewController: UIViewController, VerticalCardSwiperDelegate, Vertical
             cardCell.imageView.addGestureRecognizer(tapGesture)
             cardCell.imageView.isUserInteractionEnabled = true
 
-            ;return cardCell
+            return cardCell
             
         }
 
@@ -88,6 +111,7 @@ class HomeViewController: UIViewController, VerticalCardSwiperDelegate, Vertical
     
 
     @objc func imageTapped(sender: UITapGestureRecognizer) {
+        print(sender)
         let imageView = sender.view as! UIImageView
             let newImageView = UIImageView(image: imageView.image)
             newImageView.frame = UIScreen.main.bounds
@@ -110,19 +134,16 @@ class HomeViewController: UIViewController, VerticalCardSwiperDelegate, Vertical
 
 
     func numberOfCards(verticalCardSwiperView: VerticalCardSwiperView) -> Int {
-        return mainDelegate.currentUserObj.Posts.count 
+        return mainDelegate.currentUserObj.Posts.count
     }
 
     func willSwipeCardAway(card: CardCell, index: Int, swipeDirection: SwipeDirection) {
-        // called right before the card animates off the screen.
-        if index < mainDelegate.currentUserObj.Posts.count {
+        if index < mainDelegate.currentUserObj.Posts.count  {
             mainDelegate.currentUserObj.Posts.remove(at: index)
         }
     }
-
 
     func didSwipeCardAway(card: CardCell, index: Int, swipeDirection: SwipeDirection) {
         // called when a card has animated off screen entirely.
     }
 }
-

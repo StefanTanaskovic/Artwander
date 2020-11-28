@@ -63,7 +63,12 @@ class SignUpViewController: UIViewController {
                 self.mainDelegate.firestoreDB?.collection("users").document((authResult?.user.uid)!).setData([
                     "full_name": self.tfName.text!,
                     "email": self.tfEmail.text!,
-                    "posts": []
+                    "posts": [],
+                    "following": [],
+                    "folllowers": [],
+                    "followingCount": 0,
+                    "followerCount": 0,
+                    "profile_pic": "https://firebasestorage.googleapis.com/v0/b/artwander.appspot.com/o/noimage_person.png?alt=media&token=158900fc-1532-491a-ab68-e201687fdfc8"
                 ])
                 self.dismiss(animated: true, completion: nil)
             }

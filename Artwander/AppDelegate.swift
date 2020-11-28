@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestore
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,7 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var firestoreDB : Firestore?
     var currentUserId : String?
     var currentUserObj : ArtUser = ArtUser()
-
+    var post : Post = Post()
+    var post_id_list : [String] = []
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
@@ -42,6 +44,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.currentUserObj = ArtUser()
             self.currentUserObj.name = document!.get("full_name") as! String
             self.currentUserObj.email = document!.get("email") as! String
+            self.currentUserObj.followerCount = document!.get("followerCount") as! Int
+            self.currentUserObj.followingCount = document!.get("followCount") as! Int
+            self.currentUserObj.followers = document!.get("followers") as! [String]
+            self.currentUserObj.following = document!.get("following") as! [String]
+            self.currentUserObj.profilePic = document!.get("profile_pic") as! String
+            self.post_id_list = (document!.get("posts") as? [String])!
+            for post in self.post_id_list {
+                self.firestoreDB?.collection("posts").document(post).getDocument { (document1, err) in
+                    self.post = Post()
+                    self.post.name = document1!.get("name") as! String
+                    self.post.caption = document1!.get("caption") as! String
+                    self.post.image =  document1!.get("image") as! String
+                    self.post.profilePic = document1!.get("profile_pic") as! String
+                    self.post.likeAmount =  document1!.get("like_amount") as! Int
+                    self.post.poster =  document1!.get("poster") as! String
+                    self.currentUserObj.Posts.append(self.post)
+                }
+                
+            }
         }
     }
 

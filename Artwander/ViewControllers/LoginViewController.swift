@@ -24,11 +24,13 @@ class LoginViewController: UIViewController {
     // MARK: ViewController Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
     }
 
     override func viewDidAppear(_ animated: Bool) {
 //        if Auth.auth().currentUser != nil {
+//    
 //            performSegue(withIdentifier: "main", sender: nil)
 //        }
     }
