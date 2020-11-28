@@ -65,7 +65,7 @@ class SignUpViewController: UIViewController {
                     "email": self.tfEmail.text!,
                     "posts": [],
                     "following": [],
-                    "folllowers": [],
+                    "followers": [],
                     "followingCount": 0,
                     "followerCount": 0,
                     "profile_pic": "https://firebasestorage.googleapis.com/v0/b/artwander.appspot.com/o/noimage_person.png?alt=media&token=158900fc-1532-491a-ab68-e201687fdfc8"
