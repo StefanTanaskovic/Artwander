@@ -6,6 +6,7 @@ target 'Artwander' do
   use_frameworks!
 
   # Pods for Artwander
+
 pod 'Firebase/Analytics'
 pod 'Firebase/Auth'
 pod 'Firebase/Firestore'

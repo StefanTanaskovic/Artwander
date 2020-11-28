@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.currentUserObj.name = document!.get("full_name") as! String
             self.currentUserObj.email = document!.get("email") as! String
             self.currentUserObj.followerCount = document!.get("followerCount") as! Int
-            self.currentUserObj.followingCount = document!.get("followCount") as! Int
+            self.currentUserObj.followingCount = document!.get("followingCount") as! Int
             self.currentUserObj.followers = document!.get("followers") as! [String]
             self.currentUserObj.following = document!.get("following") as! [String]
             self.currentUserObj.profilePic = document!.get("profile_pic") as! String

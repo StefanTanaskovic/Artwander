@@ -32,6 +32,7 @@
 		A419574F2570D49C00C46956 /* FollowerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A419574E2570D49C00C46956 /* FollowerListViewController.swift */; };
 		A41957512570DA0700C46956 /* SimpleUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41957502570DA0700C46956 /* SimpleUser.swift */; };
 		D30C9A7D25678445000674D7 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30C9A7C25678445000674D7 /* TabBarViewController.swift */; };
+		D3CF693A2572254000A9C56C /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3CF69392572254000A9C56C /* Kingfisher.framework */; };
 		F705F85B3B6E36BC4B79A089 /* Pods_Artwander.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6190E2855BB451667650705D /* Pods_Artwander.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,9 @@
 		A41957502570DA0700C46956 /* SimpleUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleUser.swift; sourceTree = "<group>"; };
 		C2DEE09B64BFC307E3B2DEE0 /* Pods-Artwander.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Artwander.debug.xcconfig"; path = "Target Support Files/Pods-Artwander/Pods-Artwander.debug.xcconfig"; sourceTree = "<group>"; };
 		D30C9A7C25678445000674D7 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		D3CF693125721DE700A9C56C /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3CF69352572221A00A9C56C /* Nuke.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nuke.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3CF69392572254000A9C56C /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF21D32B418369D1824F21BD /* Pods-Artwander.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Artwander.release.xcconfig"; path = "Target Support Files/Pods-Artwander/Pods-Artwander.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,6 +79,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A40ABE7525688F0D003A4DD7 /* VerticalCardSwiper.framework in Frameworks */,
+				D3CF693A2572254000A9C56C /* Kingfisher.framework in Frameworks */,
 				F705F85B3B6E36BC4B79A089 /* Pods_Artwander.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,6 +90,9 @@
 		192A7CED74EAF2D115DAD48D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D3CF69392572254000A9C56C /* Kingfisher.framework */,
+				D3CF69352572221A00A9C56C /* Nuke.framework */,
+				D3CF693125721DE700A9C56C /* Kingfisher.framework */,
 				A40ABE7425688F0D003A4DD7 /* VerticalCardSwiper.framework */,
 				A40ABE5D25686595003A4DD7 /* VerticalCardSwiper.framework */,
 				6190E2855BB451667650705D /* Pods_Artwander.framework */,
@@ -195,7 +203,6 @@
 				A40ABE362565E165003A4DD7 /* Frameworks */,
 				A40ABE372565E165003A4DD7 /* Resources */,
 				C1B66ADE9211EDB248924AE6 /* [CP] Embed Pods Frameworks */,
-				5520D42E24E7952FD5D55D07 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -255,23 +262,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5520D42E24E7952FD5D55D07 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Artwander/Pods-Artwander-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Artwander/Pods-Artwander-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Artwander/Pods-Artwander-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		9A4C5549C7E2EAE8ECF69E57 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
