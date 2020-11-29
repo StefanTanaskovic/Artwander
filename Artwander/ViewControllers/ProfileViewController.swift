@@ -41,6 +41,9 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        collectionView.reloadData()
+        
         print(mainDelegate.currentUserObj.Posts)
         profileName.text =  mainDelegate.currentUserObj.name
         btnFollower.setTitle(String(mainDelegate.currentUserObj.followerCount), for: .normal)
