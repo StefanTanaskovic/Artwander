@@ -5,28 +5,32 @@ import VerticalCardSwiper
 
 class ExampleCardCell: CardCell, UIGestureRecognizerDelegate {
     
-    @IBOutlet weak var nameLbl: UILabel!
-    @IBOutlet weak var ageLbl: UILabel!
+    @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var lblCaption: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var profilePicView: UIImageView!
-    @IBOutlet weak var likeBtn: UIButton!
-    @IBOutlet weak var commentBtn: UIButton!
-    @IBOutlet weak var profileBtn: UIButton!
-    @IBOutlet weak var purchaseBtn: UIButton!
-    
+    @IBOutlet weak var btnLike: UIButton!
+    @IBOutlet weak var btnComment: UIButton!
+    @IBOutlet weak var btnProfile: UIButton!
+    @IBOutlet weak var btnPurchase: UIButton!
+    var onClickCallBackProfile: (() -> Void)?
+    var onClickCallBackComment: (() -> Void)?
+    var onClickCallBackLike: (() -> Void)?
+    var onClickCallBackPurchase: (() -> Void)?
+
     public func setBackgroundColor() {
-        likeBtn.imageView?.contentMode = .scaleAspectFit
-        commentBtn.imageView?.contentMode = .scaleAspectFit
-        profileBtn.imageView?.contentMode = .scaleAspectFit
-        purchaseBtn.imageView?.contentMode = .scaleAspectFit
+        btnLike.imageView?.contentMode = .scaleAspectFit
+        btnComment.imageView?.contentMode = .scaleAspectFit
+        btnProfile.imageView?.contentMode = .scaleAspectFit
+        btnPurchase.imageView?.contentMode = .scaleAspectFit
         
-        likeBtn.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25, bottom: 25, right: 25)
-        commentBtn.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25, bottom: 25, right: 25)
-        profileBtn.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25, bottom: 25, right: 25)
-        purchaseBtn.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25, bottom: 25, right: 25)
+        btnLike.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25, bottom: 25, right: 25)
+        btnComment.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25, bottom: 25, right: 25)
+        btnProfile.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25, bottom: 25, right: 25)
+        btnPurchase.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25, bottom: 25, right: 25)
         imageView.layer.cornerRadius = 10
-        ageLbl.numberOfLines = 3
-        ageLbl.sizeToFit()
+        lblCaption.numberOfLines = 3
+        lblCaption.sizeToFit()
 
         profilePicView.layer.borderWidth = 2
         profilePicView.layer.masksToBounds = false
@@ -36,6 +40,22 @@ class ExampleCardCell: CardCell, UIGestureRecognizerDelegate {
         self.backgroundColor =  UIColor(red: 29/255, green: 29/255, blue: 29/255, alpha: 1)
     }
 
+    @IBAction func btnProfile(_ sender: Any) {
+        onClickCallBackProfile?()
+    }
+
+    @IBAction func btnComment(_ sender: Any) {
+        onClickCallBackComment?()
+
+    }
+    @IBAction func btnLike(_ sender: Any) {
+        onClickCallBackLike?()
+
+    }
+    @IBAction func btnPurchase(_ sender: Any) {
+        onClickCallBackPurchase?()
+
+    }
     override func prepareForReuse() {
         super.prepareForReuse()
 

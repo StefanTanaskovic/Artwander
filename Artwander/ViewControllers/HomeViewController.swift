@@ -39,6 +39,7 @@ class HomeViewController: UIViewController, VerticalCardSwiperDelegate, Vertical
 
         // register cardcell for storyboard use
         cardSwiper.register(nib: UINib(nibName: "ExampleCell", bundle: nil), forCellWithReuseIdentifier: "ExampleCell")
+
         
     }
     
@@ -48,6 +49,7 @@ class HomeViewController: UIViewController, VerticalCardSwiperDelegate, Vertical
 
     @IBAction func toProfile(_ sender: Any) {
             performSegue(withIdentifier: "toProfile", sender: self)
+        
     }
     
 
@@ -68,22 +70,50 @@ class HomeViewController: UIViewController, VerticalCardSwiperDelegate, Vertical
         
         
         if let cardCell = verticalCardSwiperView.dequeueReusableCell(withReuseIdentifier: "ExampleCell", for: index) as? ExampleCardCell {
-            print(index)
+            var likeState : Bool = false
             let post = contactsDemoData[index]
             cardCell.setBackgroundColor()
-            cardCell.nameLbl.text = post.name
-            cardCell.ageLbl.text = post.caption
+            cardCell.onClickCallBackProfile = {
+                self.performSegue(withIdentifier: "toProfile", sender: self)
+            }
+            cardCell.onClickCallBackLike = {
+                let state = self.activateLike(bool: likeState)
+                if state == true{
+                    likeState = true
+                    cardCell.btnLike.setImage(UIImage(systemName: "heart.fill", withConfiguration: .none), for: .normal)
+                }else{
+                    likeState = false
+                    cardCell.btnLike.setImage(UIImage(systemName: "heart", withConfiguration: .none), for: .normal)
+                }
+            }
+            cardCell.onClickCallBackComment = {
+//                self.performSegue(withIdentifier: "toComments", sender: self)
+            }
+            cardCell.onClickCallBackPurchase = {
+//                self.performSegue(withIdentifier: "toPurchase", sender: self)
+            }
+            cardCell.lblName.text = post.name
+            cardCell.lblCaption.text = post.caption
             cardCell.imageView.image = UIImage(named: "art2.jpg")
             cardCell.profilePicView.image = UIImage(named: "art2.jpg")
             
             cardCell.imageView.addGestureRecognizer(tapGesture)
             cardCell.imageView.isUserInteractionEnabled = true
-            if selectedSegnment == 1 {
-                return cardCell
-            }
+            
+            return cardCell
+            
         }
 
         return CardCell()
+    }
+    
+    func activateLike(bool: Bool) -> Bool{
+        if bool == false{
+            return true
+        }else{
+            return false
+
+        }
     }
     
 

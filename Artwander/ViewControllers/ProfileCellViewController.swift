@@ -81,8 +81,8 @@ class ProfileCellViewController: UIViewController,VerticalCardSwiperDelegate, Ve
             let urlImage = URL(string: post.image )
             let urlProfilePic = URL(string: post.profilePic )
             cardCell.setBackgroundColor()
-            cardCell.nameLbl.text = post.name
-            cardCell.ageLbl.text = post.caption
+            cardCell.lblName.text = post.name
+            cardCell.lblCaption.text = post.caption
             cardCell.imageView.kf.setImage(with: urlImage)
             cardCell.profilePicView.kf.setImage(with: urlProfilePic)
             cardCell.imageView.addGestureRecognizer(tapGesture)
