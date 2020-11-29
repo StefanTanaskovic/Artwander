@@ -43,7 +43,6 @@ class EditProfileViewController: UIViewController {
             }
         }
     }
-
     
     @IBAction func btnSave(_ sender: Any) {
         if (txtName.text != "") {
@@ -53,9 +52,11 @@ class EditProfileViewController: UIViewController {
                  let docData: [String: Any] = [
                     "full_name": self.txtName.text!,
                     "email": self.mainDelegate.currentUserObj.email,
-                    "posts": self.mainDelegate.post_id_list ,
+                    "posts": self.mainDelegate.post_id_list,
                     "following":self.mainDelegate.currentUserObj.following ,
                     "folllowers":self.mainDelegate.currentUserObj.followers ,
+                    "followingCount": self.mainDelegate.currentUserObj.followingCount,
+                    "followerCount": self.mainDelegate.currentUserObj.followerCount,
                      "profile_pic": url
                  ]
                  ref.setData(docData) { err in
@@ -65,6 +66,7 @@ class EditProfileViewController: UIViewController {
                  }
                 self.mainDelegate.currentUserObj.profilePic = url
                 self.mainDelegate.currentUserObj.name = self.txtName.text!
+                self.mainDelegate.updateCurrentUser()
             }
             let alertController = UIAlertController(title: "Success", message: "Profile has been updated", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {

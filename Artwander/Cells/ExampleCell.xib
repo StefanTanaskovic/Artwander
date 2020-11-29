@@ -9,11 +9,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ExampleCell" id="YrG-n3-lce" customClass="ExampleCardCell" customModule="Shart" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="340" height="549"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ExampleCell" id="YrG-n3-lce" customClass="ExampleCardCell" customModule="Artwander" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="340" height="514"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                <rect key="frame" x="0.0" y="0.0" width="340" height="549"/>
+                <rect key="frame" x="0.0" y="0.0" width="340" height="514"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VL7-Bv-6Un">
@@ -51,6 +51,34 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1AJ-9B-uKq">
+                        <rect key="frame" x="302" y="473" width="20" height="20"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                        <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <state key="normal" image="cart" catalog="system"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BdF-SM-fxf">
+                        <rect key="frame" x="102" y="473" width="20" height="20"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                        <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <state key="normal" image="message" catalog="system"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VIO-2M-gG6">
+                        <rect key="frame" x="18" y="474" width="20" height="20"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                        <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <state key="normal" image="person.circle" catalog="system"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwC-Wh-QHW">
+                        <rect key="frame" x="209" y="473" width="20" height="20"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                        <color key="tintColor" red="0.73333333329999995" green="0.52549019610000003" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <state key="normal" image="heart" catalog="system"/>
+                    </button>
                 </subviews>
             </view>
             <color key="backgroundColor" red="0.16078431372549018" green="0.16078431372549018" blue="0.16078431372549018" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -70,14 +98,24 @@
                 <constraint firstAttribute="trailing" secondItem="Uvg-av-oj0" secondAttribute="trailing" constant="20" id="mdm-Jh-SA6"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="hur-jY-jUf"/>
-            <size key="customSize" width="339" height="380"/>
+            <size key="customSize" width="339" height="345"/>
             <connections>
                 <outlet property="ageLbl" destination="Sxb-h1-ZeR" id="K9n-tk-iWU"/>
+                <outlet property="commentBtn" destination="BdF-SM-fxf" id="Glv-fN-T1x"/>
                 <outlet property="imageView" destination="VL7-Bv-6Un" id="dXp-bA-Plx"/>
+                <outlet property="likeBtn" destination="iwC-Wh-QHW" id="bM9-3L-d6c"/>
                 <outlet property="nameLbl" destination="Uvg-av-oj0" id="MSc-ny-8nm"/>
+                <outlet property="profileBtn" destination="VIO-2M-gG6" id="7Jc-3T-vHi"/>
                 <outlet property="profilePicView" destination="uEb-ja-pmN" id="okB-yy-FGt"/>
+                <outlet property="purchaseBtn" destination="1AJ-9B-uKq" id="Gzb-eo-0Es"/>
             </connections>
-            <point key="canvasLocation" x="124.6376811594203" y="138.95089285714286"/>
+            <point key="canvasLocation" x="134.78260869565219" y="77.008928571428569"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="cart" catalog="system" width="128" height="102"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="message" catalog="system" width="128" height="113"/>
+        <image name="person.circle" catalog="system" width="128" height="121"/>
+    </resources>
 </document>

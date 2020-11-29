@@ -11,7 +11,6 @@ import VerticalCardSwiper
 import Kingfisher
 class HomeViewController: UIViewController, VerticalCardSwiperDelegate, VerticalCardSwiperDatasource, UIGestureRecognizerDelegate {
     
-    let mainDelegate = UIApplication.shared.delegate as! AppDelegate
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var buttonView: UIView!
     @IBOutlet weak var likeBtn: UIButton!
@@ -22,17 +21,28 @@ class HomeViewController: UIViewController, VerticalCardSwiperDelegate, Vertical
     var selectedSegnment = 1
     @IBOutlet var cardSwiper: VerticalCardSwiper!
 
+    var contactsDemoData: [Post] = [
+        Post(name: "John Doe", caption: "This water color painting took me 10 hours but finally finished", image: "art2.jpg",profilePic: "profile1", likeAmount: 0, poster: "String"  ),
+        Post(name: "John Doe", caption: "This water color painting took me 10 hours but finally finishedThis water color painting took me 10 hours but finally finishedThis water color painting took me 10 hours but finally finished", image: "art2.jpg",profilePic: "profile1", likeAmount: 0, poster: "String"  ),
+    ]
+
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let rect = CGRect(origin: CGPoint(x: 0,y :125), size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 210))
+        self.cardSwiper.frame = rect
 
+        self.view.insertSubview(self.cardSwiper, at: 0)
         cardSwiper.delegate = self
         cardSwiper.datasource = self
 
         // register cardcell for storyboard use
         cardSwiper.register(nib: UINib(nibName: "ExampleCell", bundle: nil), forCellWithReuseIdentifier: "ExampleCell")
+        
     }
     
+
     
 
 
@@ -41,17 +51,7 @@ class HomeViewController: UIViewController, VerticalCardSwiperDelegate, Vertical
     }
     
 
-    @IBAction func pressScrollUp(_ sender: UIBarButtonItem) {
-        if let currentIndex = cardSwiper.focussedCardIndex {
-            _ = cardSwiper.scrollToCard(at: currentIndex - 1, animated: true)
-        }
-    }
 
-
-    @IBAction func pressRightButton() {
-
-    }
-    
 
     @IBAction func pressScrollDown(_ sender: UIBarButtonItem) {
         if let currentIndex = cardSwiper.focussedCardIndex {
@@ -68,19 +68,19 @@ class HomeViewController: UIViewController, VerticalCardSwiperDelegate, Vertical
         
         
         if let cardCell = verticalCardSwiperView.dequeueReusableCell(withReuseIdentifier: "ExampleCell", for: index) as? ExampleCardCell {
-            let post = mainDelegate.currentUserObj.Posts[index]
-            let urlImage = URL(string: post.image )
-            let urlProfilePic = URL(string: post.profilePic )
+            print(index)
+            let post = contactsDemoData[index]
             cardCell.setBackgroundColor()
             cardCell.nameLbl.text = post.name
             cardCell.ageLbl.text = post.caption
-            cardCell.imageView.kf.setImage(with: urlImage)
-            cardCell.profilePicView.kf.setImage(with: urlProfilePic)
+            cardCell.imageView.image = UIImage(named: "art2.jpg")
+            cardCell.profilePicView.image = UIImage(named: "art2.jpg")
+            
             cardCell.imageView.addGestureRecognizer(tapGesture)
             cardCell.imageView.isUserInteractionEnabled = true
-
-            ;return cardCell
-            
+            if selectedSegnment == 1 {
+                return cardCell
+            }
         }
 
         return CardCell()
@@ -88,6 +88,7 @@ class HomeViewController: UIViewController, VerticalCardSwiperDelegate, Vertical
     
 
     @objc func imageTapped(sender: UITapGestureRecognizer) {
+        print(sender)
         let imageView = sender.view as! UIImageView
             let newImageView = UIImageView(image: imageView.image)
             newImageView.frame = UIScreen.main.bounds
@@ -110,19 +111,26 @@ class HomeViewController: UIViewController, VerticalCardSwiperDelegate, Vertical
 
 
     func numberOfCards(verticalCardSwiperView: VerticalCardSwiperView) -> Int {
-        return mainDelegate.currentUserObj.Posts.count 
+            return contactsDemoData.count
     }
 
     func willSwipeCardAway(card: CardCell, index: Int, swipeDirection: SwipeDirection) {
         // called right before the card animates off the screen.
-        if index < mainDelegate.currentUserObj.Posts.count {
-            mainDelegate.currentUserObj.Posts.remove(at: index)
-        }
+    
+            
+            print(swipeDirection.rawValue)
+            if index < contactsDemoData.count {
+                contactsDemoData.remove(at: index)
+            }
+        
+
     }
 
+    func didScroll(verticalCardSwiperView: VerticalCardSwiperView) {
+            let currentCard = contactsDemoData[cardSwiper.focussedCardIndex!]
+    }
 
     func didSwipeCardAway(card: CardCell, index: Int, swipeDirection: SwipeDirection) {
         // called when a card has animated off screen entirely.
     }
 }
-

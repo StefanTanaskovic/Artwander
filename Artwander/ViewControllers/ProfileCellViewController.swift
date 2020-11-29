@@ -51,7 +51,6 @@ class ProfileCellViewController: UIViewController,VerticalCardSwiperDelegate, Ve
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLoad()
-        cardSwiper.scrollToCard(at: Int(text)!, animated: false)
     }
 
     
@@ -68,19 +67,6 @@ class ProfileCellViewController: UIViewController,VerticalCardSwiperDelegate, Ve
 //            vc?.text = String(format: "%@", sender! as! CVarArg)
 //        }
     }
-    
-    @IBAction func pressLeftButton(_ sender: Any) {
-        if let currentIndex = cardSwiper.focussedCardIndex {
-            _ = cardSwiper.swipeCardAwayProgrammatically(at: currentIndex, to: .Left)
-        }
-    }
-
-    @IBAction func pressRightButton() {
-        if let currentIndex = cardSwiper.focussedCardIndex {
-            _ = cardSwiper.swipeCardAwayProgrammatically(at: currentIndex, to: .Right)
-        }
-    }
-
     
 
     func cardForItemAt(verticalCardSwiperView: VerticalCardSwiperView, cardForItemAt index: Int) -> CardCell {
@@ -103,9 +89,7 @@ class ProfileCellViewController: UIViewController,VerticalCardSwiperDelegate, Ve
             cardCell.imageView.isUserInteractionEnabled = true
 
             return cardCell
-            
         }
-
         return CardCell()
     }
     
