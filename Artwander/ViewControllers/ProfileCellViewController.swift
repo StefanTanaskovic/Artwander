@@ -51,7 +51,6 @@ class ProfileCellViewController: UIViewController,VerticalCardSwiperDelegate, Ve
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLoad()
-        cardSwiper.scrollToCard(at: Int(text)!, animated: false)
     }
 
     
@@ -69,19 +68,6 @@ class ProfileCellViewController: UIViewController,VerticalCardSwiperDelegate, Ve
 //        }
     }
     
-    @IBAction func pressLeftButton(_ sender: Any) {
-        if let currentIndex = cardSwiper.focussedCardIndex {
-            _ = cardSwiper.swipeCardAwayProgrammatically(at: currentIndex, to: .Left)
-        }
-    }
-
-    @IBAction func pressRightButton() {
-        if let currentIndex = cardSwiper.focussedCardIndex {
-            _ = cardSwiper.swipeCardAwayProgrammatically(at: currentIndex, to: .Right)
-        }
-    }
-
-    
 
     func cardForItemAt(verticalCardSwiperView: VerticalCardSwiperView, cardForItemAt index: Int) -> CardCell {
         
@@ -95,17 +81,15 @@ class ProfileCellViewController: UIViewController,VerticalCardSwiperDelegate, Ve
             let urlImage = URL(string: post.image )
             let urlProfilePic = URL(string: post.profilePic )
             cardCell.setBackgroundColor()
-            cardCell.nameLbl.text = post.name
-            cardCell.ageLbl.text = post.caption
+            cardCell.lblName.text = post.name
+            cardCell.lblCaption.text = post.caption
             cardCell.imageView.kf.setImage(with: urlImage)
             cardCell.profilePicView.kf.setImage(with: urlProfilePic)
             cardCell.imageView.addGestureRecognizer(tapGesture)
             cardCell.imageView.isUserInteractionEnabled = true
 
             return cardCell
-            
         }
-
         return CardCell()
     }
     

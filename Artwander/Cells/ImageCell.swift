@@ -1,12 +1,11 @@
 //
 //  ImageCell.swift
-//  Artwander
+//  Shart
 //
-//  Created by Stefan Tanaskovic on 2020-11-20.
+//  Created by Stefan Tanaskovic on 2020-06-03.
 //  Copyright © 2020 Stefan Tanaskovic. All rights reserved.
 //
 
-import Foundation
 
 import Foundation
 import UIKit
@@ -31,3 +30,4 @@ class ImageCell: CardCell, UIGestureRecognizerDelegate {
     
 
 }
+
