@@ -41,6 +41,9 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        collectionView.reloadData()
+        
         print(mainDelegate.currentUserObj.Posts)
         collectionView.reloadData()
         profileName.text =  mainDelegate.currentUserObj.name

@@ -45,6 +45,7 @@ class EditProfileViewController: UIViewController {
     }
     
     @IBAction func btnSave(_ sender: Any) {
+        
         if (txtName.text != "") {
             uploadMedia() { url in
                  guard let url = url else { return }
@@ -86,6 +87,7 @@ class EditProfileViewController: UIViewController {
         self.imagePicker.present(from: sender as! UIView)
     }
 }
+
 extension EditProfileViewController: ImagePickerDelegate {
     func didSelect(image: UIImage?) {
         self.profilePicture.image = image
