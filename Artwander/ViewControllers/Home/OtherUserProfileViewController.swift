@@ -112,9 +112,11 @@ class OtherUserProfileViewController: UIViewController, UICollectionViewDelegate
                 self.followerListPoster.removeAll(where: { $0 == self.mainDelegate.currentUserId! })
                 self.followerCountPoster -= 1
                 self.updateFollow(user: self.poster, count: self.followerCountPoster, list: self.followerListPoster)
-             }
-             alertController.addAction(okAction)
-             self.present(alertController, animated: true, completion: nil)
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel)
+            alertController.addAction(cancelAction)
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
         }else{
             //Update Button
             btnFollowlbl.backgroundColor = UIColor(red: 0.75, green: 0.36, blue: 0.86, alpha: 1.00)
