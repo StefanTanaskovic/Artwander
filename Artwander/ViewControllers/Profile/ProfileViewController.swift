@@ -20,7 +20,6 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     @IBOutlet weak var profilePicView: UIImageView!
     @IBOutlet weak var editProfileBtn: UIButton!
     var bounds = UIScreen.main.bounds
-    var db: Firestore!
     let mainDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
@@ -41,10 +40,6 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        collectionView.reloadData()
-        
-        print(mainDelegate.currentUserObj.Posts)
         collectionView.reloadData()
         profileName.text =  mainDelegate.currentUserObj.name
         btnFollower.setTitle(String(mainDelegate.currentUserObj.followerCount), for: .normal)
@@ -62,6 +57,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         if segue.identifier == "presentPopup" {
             let vc = segue.destination as? ProfileCellViewController
             vc?.text = String(format: "%@", sender! as! CVarArg)
+            vc?.posts = mainDelegate.currentUserObj.Posts
         }else if segue.identifier == "toEditProfile"{
             let vc = segue.destination as? EditProfileViewController
             vc?.profilePic = profilePicView.image!
@@ -107,21 +103,8 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let post = mainDelegate.currentUserObj.Posts[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
-        let url = URL(string: post.image )
+        let url = URL(string: post.image)
         cell.imageCell.kf.setImage(with: url)
         return cell
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

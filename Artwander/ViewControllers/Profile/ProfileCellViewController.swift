@@ -1,64 +1,63 @@
 //
-//  HomeViewController.swift
+//  ProfileCellViewController.swift
 //  Artwander
 //
-//  Created by Stefan Tanaskovic on 2020-11-20.
+//  Created by Stefan Tanaskovic on 2020-11-21.
 //  Copyright © 2020 Stefan Tanaskovic. All rights reserved.
 //
 
+
 import UIKit
 import VerticalCardSwiper
-import Kingfisher
-class HomeViewController: UIViewController, VerticalCardSwiperDelegate, VerticalCardSwiperDatasource, UIGestureRecognizerDelegate {
-    
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
+
+class ProfileCellViewController: UIViewController,VerticalCardSwiperDelegate, VerticalCardSwiperDatasource, UIGestureRecognizerDelegate {
+    let mainDelegate = UIApplication.shared.delegate as! AppDelegate
+    var text:String = ""
+    var posts: [Post] = []
     @IBOutlet weak var buttonView: UIView!
     @IBOutlet weak var likeBtn: UIButton!
     @IBOutlet weak var msgBtn: UIButton!
-    
     @IBOutlet weak var profileBtn: UIButton!
     @IBOutlet weak var purchaseBtn: UIButton!
-    var selectedSegnment = 1
-    @IBOutlet var cardSwiper: VerticalCardSwiper!
 
-    var contactsDemoData: [Post] = [
-        Post(name: "John Doe", caption: "This water color painting took me 10 hours but finally finished", image: "art2.jpg",profilePic: "profile1", likeAmount: 0, poster: "String"  ),
-        Post(name: "John Doe", caption: "This water color painting took me 10 hours but finally finishedThis water color painting took me 10 hours but finally finishedThis water color painting took me 10 hours but finally finished", image: "art2.jpg",profilePic: "profile1", likeAmount: 0, poster: "String"  ),
-    ]
-
-    
-
+ 
+    @IBOutlet weak var cardSwiper: VerticalCardSwiper!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = mainDelegate.currentUserObj.name + " Page"
+        
         let rect = CGRect(origin: CGPoint(x: 0,y :125), size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 210))
         self.cardSwiper.frame = rect
 
+        
         self.view.insertSubview(self.cardSwiper, at: 0)
+
         cardSwiper.delegate = self
         cardSwiper.datasource = self
 
         // register cardcell for storyboard use
         cardSwiper.register(nib: UINib(nibName: "ExampleCell", bundle: nil), forCellWithReuseIdentifier: "ExampleCell")
-
+        
         
     }
-    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLoad()
+        cardSwiper.scrollToCard(at: Int(text)!, animated: false)
+    }
 
     
-
-
-    @IBAction func toProfile(_ sender: Any) {
-            performSegue(withIdentifier: "toProfile", sender: self)
+    @IBAction func profileBtn(_ sender: Any) {
+        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
         
+        self.navigationController?.pushViewController(secondViewController, animated: true)
     }
     
-
-
-
-    @IBAction func pressScrollDown(_ sender: UIBarButtonItem) {
-        if let currentIndex = cardSwiper.focussedCardIndex {
-            _ = cardSwiper.scrollToCard(at: currentIndex + 1, animated: true)
-        }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "toProfile" {
+//            let vc = segue.destination as? ProfileCellViewController
+//            vc?.text = String(format: "%@", sender! as! CVarArg)
+//        }
     }
     
 
@@ -71,10 +70,8 @@ class HomeViewController: UIViewController, VerticalCardSwiperDelegate, Vertical
         
         if let cardCell = verticalCardSwiperView.dequeueReusableCell(withReuseIdentifier: "ExampleCell", for: index) as? ExampleCardCell {
             var likeState : Bool = false
-            let post = contactsDemoData[index]
-            cardCell.setBackgroundColor()
             cardCell.onClickCallBackProfile = {
-                self.performSegue(withIdentifier: "toProfile", sender: self)
+                self.navigationController?.popViewController(animated: true)
             }
             cardCell.onClickCallBackLike = {
                 let state = self.activateLike(bool: likeState)
@@ -86,36 +83,31 @@ class HomeViewController: UIViewController, VerticalCardSwiperDelegate, Vertical
                     cardCell.btnLike.setImage(UIImage(systemName: "heart", withConfiguration: .none), for: .normal)
                 }
             }
-            cardCell.onClickCallBackComment = {
-//                self.performSegue(withIdentifier: "toComments", sender: self)
-            }
-            cardCell.onClickCallBackPurchase = {
-//                self.performSegue(withIdentifier: "toPurchase", sender: self)
-            }
+            
+            let post = posts[index]
+            let urlImage = URL(string: post.image )
+            let urlProfilePic = URL(string: post.profilePic )
+            cardCell.setBackgroundColor()
             cardCell.lblName.text = post.name
             cardCell.lblCaption.text = post.caption
-            cardCell.imageView.image = UIImage(named: "art2.jpg")
-            cardCell.profilePicView.image = UIImage(named: "art2.jpg")
-            
+            cardCell.imageView.kf.setImage(with: urlImage)
+            cardCell.profilePicView.kf.setImage(with: urlProfilePic)
             cardCell.imageView.addGestureRecognizer(tapGesture)
             cardCell.imageView.isUserInteractionEnabled = true
-            
-            return cardCell
-            
-        }
 
+            return cardCell
+        }
         return CardCell()
     }
+    
     
     func activateLike(bool: Bool) -> Bool{
         if bool == false{
             return true
         }else{
             return false
-
         }
     }
-    
 
     @objc func imageTapped(sender: UITapGestureRecognizer) {
         print(sender)
@@ -141,23 +133,13 @@ class HomeViewController: UIViewController, VerticalCardSwiperDelegate, Vertical
 
 
     func numberOfCards(verticalCardSwiperView: VerticalCardSwiperView) -> Int {
-            return contactsDemoData.count
+        return posts.count
     }
 
     func willSwipeCardAway(card: CardCell, index: Int, swipeDirection: SwipeDirection) {
-        // called right before the card animates off the screen.
-    
-            
-            print(swipeDirection.rawValue)
-            if index < contactsDemoData.count {
-                contactsDemoData.remove(at: index)
-            }
-        
-
-    }
-
-    func didScroll(verticalCardSwiperView: VerticalCardSwiperView) {
-            let currentCard = contactsDemoData[cardSwiper.focussedCardIndex!]
+        if index < posts.count  {
+            posts.remove(at: index)
+        }
     }
 
     func didSwipeCardAway(card: CardCell, index: Int, swipeDirection: SwipeDirection) {

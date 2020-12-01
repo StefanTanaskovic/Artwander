@@ -1,8 +1,8 @@
 //
-//  ProfileCellViewController.swift
+//  OtherUserProlfieCellViewController.swift
 //  Artwander
 //
-//  Created by Stefan Tanaskovic on 2020-11-21.
+//  Created by Stefan Tanaskovic on 2020-11-29.
 //  Copyright © 2020 Stefan Tanaskovic. All rights reserved.
 //
 
@@ -10,34 +10,20 @@
 import UIKit
 import VerticalCardSwiper
 
-class ProfileCellViewController: UIViewController,VerticalCardSwiperDelegate, VerticalCardSwiperDatasource, UIGestureRecognizerDelegate {
+class OtherUserProfileCellViewController: UIViewController,VerticalCardSwiperDelegate, VerticalCardSwiperDatasource, UIGestureRecognizerDelegate {
     let mainDelegate = UIApplication.shared.delegate as! AppDelegate
     var text:String = ""
-    @IBOutlet weak var buttonView: UIView!
-    @IBOutlet weak var likeBtn: UIButton!
-    @IBOutlet weak var msgBtn: UIButton!
-    @IBOutlet weak var profileBtn: UIButton!
-    @IBOutlet weak var purchaseBtn: UIButton!
-
- 
+    var posts: [Post] = []
+    
     @IBOutlet weak var cardSwiper: VerticalCardSwiper!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = mainDelegate.currentUserObj.name + " Page"
-        buttonView.layer.cornerRadius = 20
-        likeBtn.imageView?.contentMode = .scaleAspectFit
-        msgBtn.imageView?.contentMode = .scaleAspectFit
-        profileBtn.imageView?.contentMode = .scaleAspectFit
-        purchaseBtn.imageView?.contentMode = .scaleAspectFit
         
-        likeBtn.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25, bottom: 25, right: 25)
-        msgBtn.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25, bottom: 25, right: 25)
-        profileBtn.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25, bottom: 25, right: 25)
-        purchaseBtn.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25, bottom: 25, right: 25)
+        let rect = CGRect(origin: CGPoint(x: 0,y :125), size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 210))
+        self.cardSwiper.frame = rect
 
-        cardSwiper.isStackingEnabled = false
-        cardSwiper.visibleNextCardHeight = 0
-        cardSwiper.topInset = 0
         
         self.view.insertSubview(self.cardSwiper, at: 0)
 
@@ -51,6 +37,7 @@ class ProfileCellViewController: UIViewController,VerticalCardSwiperDelegate, Ve
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLoad()
+        cardSwiper.scrollToCard(at: Int(text)!, animated: false)
     }
 
     
@@ -77,7 +64,10 @@ class ProfileCellViewController: UIViewController,VerticalCardSwiperDelegate, Ve
         
         
         if let cardCell = verticalCardSwiperView.dequeueReusableCell(withReuseIdentifier: "ExampleCell", for: index) as? ExampleCardCell {
-            let post = mainDelegate.currentUserObj.Posts[index]
+            cardCell.onClickCallBackProfile = {
+                self.navigationController?.popViewController(animated: true)
+            }
+            let post = posts[index]
             let urlImage = URL(string: post.image )
             let urlProfilePic = URL(string: post.profilePic )
             cardCell.setBackgroundColor()
@@ -93,6 +83,7 @@ class ProfileCellViewController: UIViewController,VerticalCardSwiperDelegate, Ve
         return CardCell()
     }
     
+
 
     @objc func imageTapped(sender: UITapGestureRecognizer) {
         print(sender)
@@ -118,12 +109,12 @@ class ProfileCellViewController: UIViewController,VerticalCardSwiperDelegate, Ve
 
 
     func numberOfCards(verticalCardSwiperView: VerticalCardSwiperView) -> Int {
-        return mainDelegate.currentUserObj.Posts.count
+        return posts.count
     }
 
     func willSwipeCardAway(card: CardCell, index: Int, swipeDirection: SwipeDirection) {
-        if index < mainDelegate.currentUserObj.Posts.count  {
-            mainDelegate.currentUserObj.Posts.remove(at: index)
+        if index < posts.count  {
+            posts.remove(at: index)
         }
     }
 
@@ -131,3 +122,4 @@ class ProfileCellViewController: UIViewController,VerticalCardSwiperDelegate, Ve
         // called when a card has animated off screen entirely.
     }
 }
+

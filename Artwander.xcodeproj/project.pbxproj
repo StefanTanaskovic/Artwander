@@ -31,6 +31,7 @@
 		A419574D2570D33800C46956 /* FollowingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A419574C2570D33800C46956 /* FollowingListViewController.swift */; };
 		A419574F2570D49C00C46956 /* FollowerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A419574E2570D49C00C46956 /* FollowerListViewController.swift */; };
 		A41957512570DA0700C46956 /* SimpleUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41957502570DA0700C46956 /* SimpleUser.swift */; };
+		A419575325741FFD00C46956 /* OtherUserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A419575225741FFC00C46956 /* OtherUserProfileViewController.swift */; };
 		D30C9A7D25678445000674D7 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30C9A7C25678445000674D7 /* TabBarViewController.swift */; };
 		D3CF693A2572254000A9C56C /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3CF69392572254000A9C56C /* Kingfisher.framework */; };
 		F705F85B3B6E36BC4B79A089 /* Pods_Artwander.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6190E2855BB451667650705D /* Pods_Artwander.framework */; };
@@ -65,6 +66,7 @@
 		A419574C2570D33800C46956 /* FollowingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingListViewController.swift; sourceTree = "<group>"; };
 		A419574E2570D49C00C46956 /* FollowerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListViewController.swift; sourceTree = "<group>"; };
 		A41957502570DA0700C46956 /* SimpleUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleUser.swift; sourceTree = "<group>"; };
+		A419575225741FFC00C46956 /* OtherUserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherUserProfileViewController.swift; sourceTree = "<group>"; };
 		C2DEE09B64BFC307E3B2DEE0 /* Pods-Artwander.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Artwander.debug.xcconfig"; path = "Target Support Files/Pods-Artwander/Pods-Artwander.debug.xcconfig"; sourceTree = "<group>"; };
 		D30C9A7C25678445000674D7 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		D3CF693125721DE700A9C56C /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,17 +148,12 @@
 		A40ABE542566F755003A4DD7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				A40ABE522566F741003A4DD7 /* LoginViewController.swift */,
-				A40ABE552566F93D003A4DD7 /* SignupViewController.swift */,
+				A41957572574986800C46956 /* New Post */,
+				A41957562574984D00C46956 /* Profile */,
+				A41957552574981700C46956 /* Home */,
+				A4195754257497C500C46956 /* Login\Signup */,
 				D30C9A7C25678445000674D7 /* TabBarViewController.swift */,
-				A40ABE6125686AA1003A4DD7 /* HomeViewController.swift */,
-				A40ABE7225688D73003A4DD7 /* NewPostViewController.swift */,
-				A40ABE782568F55B003A4DD7 /* ProfileViewController.swift */,
-				A40ABE7A2568F5C4003A4DD7 /* ProfileCellViewController.swift */,
-				A40ABE7C2569047A003A4DD7 /* EditProfileViewController.swift */,
 				A40ABE7E256A37D3003A4DD7 /* ImagePickerController.swift */,
-				A419574C2570D33800C46956 /* FollowingListViewController.swift */,
-				A419574E2570D49C00C46956 /* FollowerListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -189,6 +186,44 @@
 				A40ABE6E256871CD003A4DD7 /* CollectionViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		A4195754257497C500C46956 /* Login\Signup */ = {
+			isa = PBXGroup;
+			children = (
+				A40ABE552566F93D003A4DD7 /* SignupViewController.swift */,
+				A40ABE522566F741003A4DD7 /* LoginViewController.swift */,
+			);
+			path = "Login\\Signup";
+			sourceTree = "<group>";
+		};
+		A41957552574981700C46956 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A40ABE6125686AA1003A4DD7 /* HomeViewController.swift */,
+				A419575225741FFC00C46956 /* OtherUserProfileViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		A41957562574984D00C46956 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				A40ABE782568F55B003A4DD7 /* ProfileViewController.swift */,
+				A40ABE7A2568F5C4003A4DD7 /* ProfileCellViewController.swift */,
+				A40ABE7C2569047A003A4DD7 /* EditProfileViewController.swift */,
+				A419574C2570D33800C46956 /* FollowingListViewController.swift */,
+				A419574E2570D49C00C46956 /* FollowerListViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		A41957572574986800C46956 /* New Post */ = {
+			isa = PBXGroup;
+			children = (
+				A40ABE7225688D73003A4DD7 /* NewPostViewController.swift */,
+			);
+			path = "New Post";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,6 +343,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A419575325741FFD00C46956 /* OtherUserProfileViewController.swift in Sources */,
 				A40ABE532566F741003A4DD7 /* LoginViewController.swift in Sources */,
 				A40ABE3D2565E165003A4DD7 /* AppDelegate.swift in Sources */,
 				A41957512570DA0700C46956 /* SimpleUser.swift in Sources */,
@@ -472,6 +508,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A363R9272B;
 				INFOPLIST_FILE = Artwander/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -491,6 +528,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A363R9272B;
 				INFOPLIST_FILE = Artwander/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (

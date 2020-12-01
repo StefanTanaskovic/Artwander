@@ -25,7 +25,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uvg-av-oj0">
-                        <rect key="frame" x="74" y="396" width="246" height="21"/>
+                        <rect key="frame" x="74" y="401" width="246" height="21"/>
                         <accessibility key="accessibilityConfiguration" identifier="nameLbl"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="WvW-fh-bMk"/>
@@ -52,7 +52,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1AJ-9B-uKq">
-                        <rect key="frame" x="320" y="522" width="20" height="20"/>
+                        <rect key="frame" x="310" y="522" width="20" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
                         <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -62,7 +62,7 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BdF-SM-fxf">
-                        <rect key="frame" x="120" y="522" width="20" height="20"/>
+                        <rect key="frame" x="130" y="522" width="20" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                         <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -82,7 +82,7 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwC-Wh-QHW">
-                        <rect key="frame" x="227" y="522" width="20" height="20"/>
+                        <rect key="frame" x="220" y="522" width="20" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                         <color key="tintColor" red="0.73333333329999995" green="0.52549019610000003" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -101,10 +101,10 @@
                 <constraint firstItem="Uvg-av-oj0" firstAttribute="leading" secondItem="uEb-ja-pmN" secondAttribute="trailing" constant="7" id="8fr-ru-Cau"/>
                 <constraint firstItem="Sxb-h1-ZeR" firstAttribute="top" secondItem="uEb-ja-pmN" secondAttribute="bottom" constant="10" id="Daz-Kv-xdv"/>
                 <constraint firstItem="uEb-ja-pmN" firstAttribute="leading" secondItem="YrG-n3-lce" secondAttribute="leading" constant="7" id="LNo-JR-2u0"/>
-                <constraint firstItem="Uvg-av-oj0" firstAttribute="top" secondItem="VL7-Bv-6Un" secondAttribute="bottom" constant="4" id="QFX-vT-Naw"/>
+                <constraint firstItem="Uvg-av-oj0" firstAttribute="top" secondItem="VL7-Bv-6Un" secondAttribute="bottom" constant="9" id="QFX-vT-Naw"/>
                 <constraint firstAttribute="trailing" secondItem="Sxb-h1-ZeR" secondAttribute="trailing" constant="20" id="UjL-ax-oyc"/>
                 <constraint firstItem="Uvg-av-oj0" firstAttribute="leading" secondItem="uEb-ja-pmN" secondAttribute="trailing" constant="7" id="VK8-Aj-g2r"/>
-                <constraint firstItem="Uvg-av-oj0" firstAttribute="top" secondItem="VL7-Bv-6Un" secondAttribute="bottom" constant="4" id="elb-Ne-5iY"/>
+                <constraint firstItem="Uvg-av-oj0" firstAttribute="top" secondItem="VL7-Bv-6Un" secondAttribute="bottom" constant="9" id="elb-Ne-5iY"/>
                 <constraint firstAttribute="trailing" secondItem="VL7-Bv-6Un" secondAttribute="trailing" constant="20" id="jQa-e7-50i"/>
                 <constraint firstItem="VL7-Bv-6Un" firstAttribute="top" secondItem="YrG-n3-lce" secondAttribute="top" constant="20" id="kpa-Fa-249"/>
                 <constraint firstAttribute="trailing" secondItem="Uvg-av-oj0" secondAttribute="trailing" constant="20" id="mdm-Jh-SA6"/>

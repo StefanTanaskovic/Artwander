@@ -30,7 +30,7 @@ class ArtUser: NSObject {
         self.profilePic = "https://firebasestorage.googleapis.com/v0/b/artwander.appspot.com/o/noimage_person.png?alt=media&token=158900fc-1532-491a-ab68-e201687fdfc8"
     }
 
-    init(id: String,name: String, email: String, post: [Post], followers: [String],following: [String], profilePic: String, followerCount: Int,followingCount: Int) {
+    init(name: String, email: String, post: [Post], followers: [String],following: [String], profilePic: String, followerCount: Int,followingCount: Int) {
         self.name = name
         self.email = email
         self.Posts = post
