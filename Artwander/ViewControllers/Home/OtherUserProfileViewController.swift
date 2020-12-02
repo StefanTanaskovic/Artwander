@@ -29,6 +29,7 @@ class OtherUserProfileViewController: UIViewController, UICollectionViewDelegate
     var follow : Bool = false
     var followerListPoster: [String] = []
     var followerCountPoster: Int = 0
+    var followingListPoster: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +75,7 @@ class OtherUserProfileViewController: UIViewController, UICollectionViewDelegate
             self.btnFollowing.setTitle(String(data["followingCount"] as! Int), for: .normal)
             self.followerCountPoster = data["followerCount"] as! Int
             self.followerListPoster = data["followers"] as! [String]
+            self.followingListPoster = data["following"] as! [String]
             let url = URL(string: data["profile_pic"] as! String)
             self.profilePicView.kf.setImage(with: url)
             self.post_id_list = data["posts"] as! [String]
@@ -91,6 +93,12 @@ class OtherUserProfileViewController: UIViewController, UICollectionViewDelegate
         }
     }
     
+    @IBAction func btnFollower(_ sender: Any) {
+        performSegue(withIdentifier: "toFollower", sender: btnFollowing )
+    }
+    @IBAction func btnFollowing(_ sender: Any) {
+        performSegue(withIdentifier: "toFollow", sender: btnFollowing )
+    }
     @IBAction func btnFollow(_ sender: Any) {
         if follow == true {
             let alertController = UIAlertController(title: "Unfollow?", message: "Are you sure?", preferredStyle: .alert)
@@ -161,6 +169,12 @@ class OtherUserProfileViewController: UIViewController, UICollectionViewDelegate
             let vc = segue.destination as? ProfileCellViewController
             vc?.text = String(format: "%@", sender! as! CVarArg)
             vc?.posts = posts
+        }else if segue.identifier == "toFollow"{
+            let vc = segue.destination as? FollowingListViewController
+            vc?.followList = followingListPoster
+        }else if segue.identifier == "toFollower"{
+            let vc = segue.destination as? FollowerListViewController
+            vc?.followerList = followerListPoster
         }
     }
     

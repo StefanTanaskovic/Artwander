@@ -53,6 +53,12 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         performSegue(withIdentifier: "toEditProfile", sender: editProfileBtn )
     }
     
+    @IBAction func btnFollower(_ sender: UIButton) {
+        performSegue(withIdentifier: "toFollower", sender: btnFollow )
+    }
+    @IBAction func btnFollow(_ sender: Any) {
+        performSegue(withIdentifier: "toFollow", sender: btnFollow )
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "presentPopup" {
             let vc = segue.destination as? ProfileCellViewController
@@ -62,6 +68,13 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
             let vc = segue.destination as? EditProfileViewController
             vc?.profilePic = profilePicView.image!
             vc?.name = profileName.text!
+        }else if segue.identifier == "toFollow"{
+            let vc = segue.destination as? FollowingListViewController
+            vc?.followList = mainDelegate.currentUserObj.following
+        }
+        else if segue.identifier == "toFollower"{
+            let vc = segue.destination as? FollowerListViewController
+            vc?.followerList = mainDelegate.currentUserObj.followers
         }
     }
     

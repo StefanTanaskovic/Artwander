@@ -52,7 +52,7 @@ class NewPostViewController: UIViewController {
                 post.likeAmount =  0
                 post.poster =  self.mainDelegate.currentUserId!
                 
-                self.mainDelegate.currentUserObj.Posts.append(post)
+                self.mainDelegate.currentUserObj.Posts.insert(post, at: 0)
                 
                 // CREATE THE NEW POST DOCUMENT TO UPLOAD TO FIRESTORE
                 let ref = self.mainDelegate.firestoreDB!.collection("posts").document()

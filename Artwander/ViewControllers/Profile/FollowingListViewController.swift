@@ -7,45 +7,48 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
+
+class followTableViewCell: UITableViewCell {
+    @IBOutlet weak var imgProfileCell: UIImageView!
+    @IBOutlet weak var lblName: UILabel!
+}
+
 class FollowingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    // Data model: These strings will be the data for the table view cells
-    let animals: [String] = ["Horse", "Cow", "Camel", "Sheep", "Goat"]
-    
-    // cell reuse id (cells that scroll out of view can be reused)
+    let mainDelegate = UIApplication.shared.delegate as! AppDelegate
     let cellReuseIdentifier = "cell"
+    var db: Firestore!
+    var followList: [String] = []
     
-    // don't forget to hook this up from the storyboard
+
     @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Register the table view cell class and its reuse id
+    
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
-        
-        // (optional) include this line if you want to remove the extra empty cell divider lines
-        // self.tableView.tableFooterView = UIView()
-
-        // This view controller itself will provide the delegate methods and row data for the table view.
         tableView.delegate = self
         tableView.dataSource = self
     }
     
-    // number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.animals.count
+        return followList.count
     }
-    
-    // create a cell for each table view row
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        // create a new cell if needed or reuse an old one
-        let cell:UITableViewCell = (self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
-        
-        // set the text from the data model
-        cell.textLabel?.text = self.animals[indexPath.row]
-        
+        db = mainDelegate.firestoreDB
+        let cell = tableView.dequeueReusableCell(withIdentifier: "followCell", for: indexPath) as! followTableViewCell
+        if followList != []{
+            self.db.collection("users").document(followList[indexPath.row]).getDocument { (document, err) in
+                cell.imgProfileCell.layer.cornerRadius = cell.imgProfileCell.frame.height/2
+                cell.imgProfileCell.clipsToBounds = true
+                cell.lblName!.text =  (document!.get("full_name") as! String)
+                let url = URL(string: document!.get("profile_pic") as! String)
+                cell.imgProfileCell.kf.setImage(with: url)
+            }
+        }
         return cell
     }
     
@@ -53,4 +56,7 @@ class FollowingListViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
     }
+    
+
+    
 }

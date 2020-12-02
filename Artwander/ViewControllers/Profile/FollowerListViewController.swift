@@ -10,63 +10,46 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 
+class followerTableViewCell: UITableViewCell {
+    @IBOutlet weak var imgProfileCell: UIImageView!
+    @IBOutlet weak var lblName: UILabel!
+}
 class FollowerListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     let mainDelegate = UIApplication.shared.delegate as! AppDelegate
-
-    // Data model: These strings will be the data for the table view cells
-    var followers: [SimpleUser] = []
-    let firestoreDB = Firestore.firestore()
-    var user : SimpleUser = SimpleUser()
-    // cell reuse id (cells that scroll out of view can be reused)
     let cellReuseIdentifier = "cell"
+    var db: Firestore!
+    var followerList: [String] = []
     
-    // don't forget to hook this up from the storyboard
+
     @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadFollowers()
-        // Register the table view cell class and its reuse id
+    
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
-        
-        // (optional) include this line if you want to remove the extra empty cell divider lines
-        // self.tableView.tableFooterView = UIView()
-
-        // This view controller itself will provide the delegate methods and row data for the table view.
         tableView.delegate = self
         tableView.dataSource = self
     }
-    override func viewWillAppear(_ animated: Bool) {
-        loadFollowers()
-    }
     
-    func loadFollowers(){
-        for follower in mainDelegate.currentUserObj.followers{
-            print(1)
-            self.firestoreDB.collection("users").document(follower).getDocument { (document, err) in
-                self.user = SimpleUser()
-                self.user.name = document!.get("full_name") as! String
-                self.user.profilePic = document!.get("profile_pic") as! String
-                self.followers.append(self.user)
-                print(self.followers)
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return followerList.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        db = mainDelegate.firestoreDB
+        let cell = tableView.dequeueReusableCell(withIdentifier: "followerCell", for: indexPath) as! followerTableViewCell
+        if followerList != []{
+            self.db.collection("users").document(followerList[indexPath.row]).getDocument { (document, err) in
+                cell.imgProfileCell.layer.masksToBounds = false
+                cell.imgProfileCell.layer.cornerRadius = cell.imgProfileCell.frame.height/2
+                cell.imgProfileCell.clipsToBounds = true
+                cell.lblName!.text =  (document!.get("full_name") as! String)
+                let url = URL(string: document!.get("profile_pic") as! String)
+                cell.imgProfileCell.kf.setImage(with: url)
             }
         }
 
-    }
-    // number of rows in table view
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.followers.count
-    }
-    
-    // create a cell for each table view row
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        // create a new cell if needed or reuse an old one
-        let cell:UITableViewCell = (self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
-        
-        // set the text from the data model
-        cell.textLabel?.text = self.followers[indexPath.row].name
-
         return cell
     }
     
@@ -74,4 +57,7 @@ class FollowerListViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
     }
+    
+
+    
 }
